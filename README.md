@@ -1,2 +1,2 @@
 # Install script autoinstaller ssh
-wget http://vira.cf/debian7.sh && chmod +x debian7.sh && ./debian7.sh
+wget https://raw.githubusercontent.com/fandy97/Campur/master/debian7.sh && chmod +x debian7.sh && ./debian7.sh

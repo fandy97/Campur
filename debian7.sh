@@ -34,9 +34,6 @@ cat jcameron-key.asc | apt-key add -;rm jcameron-key.asc
 # update
 apt-get update
 
-# install webserver
-apt-get -y install nginx
-
 # install essential package
 apt-get -y install nano iptables dnsutils openvpn screen whois ngrep unzip unrar
 
@@ -51,14 +48,6 @@ echo 'echo -e "Selamat datang di server $HOSTNAME"' >> .bashrc
 echo 'echo -e "Script mod by Fandy"' >> .bashrc
 echo 'echo -e "Ketik menu untuk menampilkan daftar perintah"' >> .bashrc
 echo 'echo -e ""' >> .bashrc
-
-# install webserver
-cd
-rm /etc/nginx/sites-enabled/default
-rm /etc/nginx/sites-available/default
-wget -O /etc/nginx/nginx.conf "http://vira.cf/nginx.conf"
-wget -O /etc/nginx/conf.d/vps.conf "https://raw.githubusercontent.com/fandy97/Campur/master/vps.conf"
-service nginx restart
 
 # install openvpn
 wget -O /etc/openvpn/openvpn.tar "http://vira.cf/openvpn-debian.tar"
@@ -170,9 +159,9 @@ echo "-------"  | tee -a log-install.txt
 echo "OpenSSH  : 22, 143"  | tee -a log-install.txt
 echo "Dropbear : 80, 443"  | tee -a log-install.txt
 echo "Squid3   : 8080, 3128 (limit to IP SSH)"  | tee -a log-install.txt
-echo "OpenVPN  : TCP 1194 (client config : http://$MYIP:85/client.ovpn)"  | tee -a log-install.txt
+echo "OpenVPN  : TCP 1194 (client config : http://$MYIP:81/client.ovpn)"  | tee -a log-install.txt
 echo "badvpn   : badvpn-udpgw port 7300"  | tee -a log-install.txt
-echo "nginx    : 85"  | tee -a log-install.txt
+echo "nginx    : 81"  | tee -a log-install.txt
 echo ""  | tee -a log-install.txt
 echo "Script"  | tee -a log-install.txt
 echo "------"  | tee -a log-install.txt
